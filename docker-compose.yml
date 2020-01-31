@@ -1,0 +1,57 @@
+version: "3.7"
+services:
+  app:
+    build:
+      args:
+        user: tanvir
+        uid: 1000
+      context: ./docker-config/php
+      dockerfile: Dockerfile
+    container_name: app
+    image: laravel-env
+    restart: unless-stopped
+    working_dir: /var/www/
+    volumes:
+      - ./src/:/var/www
+    networks:
+      - demogorgon
+
+  # mssql-driver:
+  #   container_name: mssql-driver
+  #   image: mssql-driver
+  #   build:
+  #     context: ./docker-config/sqlserver
+  #     dockerfile: Dockerfile
+  #   networks:
+  #     - demogorgon
+
+  db:
+    container_name: sql-server-db
+    image: microsoft/mssql-server-linux:2017-latest
+    ports:
+      - "1433:1433"
+    environment:
+      SA_PASSWORD: "01834@shuvo"
+      ACCEPT_EULA: "Y" 
+      
+    networks:
+      - demogorgon
+
+
+  
+
+  nginx:
+    image: nginx:alpine
+    container_name: nginx
+    restart: unless-stopped
+    ports:
+      - 8000:80
+    volumes:
+      - ./src/:/var/www
+      - ./docker-config/nginx:/etc/nginx/conf.d/
+    networks:
+      - demogorgon
+
+networks:
+  demogorgon:
+    driver: bridge
