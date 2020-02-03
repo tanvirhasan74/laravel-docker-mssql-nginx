@@ -34,12 +34,12 @@ For mssql we will use the microsoft official sqlserver 2017 image.
 
 if everything is complete you can run " docker-compose up -d " and it will serve the laravel app in 8000 port.
 
-if you see that sql server image can't run then you need to increase your docker memory. Initially it is set to 2GB so you need to increase it to 4GB.
+if you see that sql server image can't run in your docker machine then you need to increase your docker memory. Initially it is set to 2GB so you need to increase it to 4GB.
 
 open sql server management studio and connect to the container where sql server is installed using the server address and the port number. The default user is ==> sa and the password will be set by you.
 Using sql server management studio create a database named testdb.
 
-you can also use artisan command in docker-compose
+you can also use artisan command in docker-compose(For example: docker-compose exec app php artisan serve)
 
 
 
