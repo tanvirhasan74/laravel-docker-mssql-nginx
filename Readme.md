@@ -45,10 +45,10 @@ then find the ip where your wsl docker is hosting. To find the ip run "docker-ma
  
 if you see that sql server image can't run in your docker machine then you need to increase your docker memory. Initially it is set to 2GB so you need to increase it to 4GB.
 ***for increasing docker memory run the following command in docker quickstart terminal
--->docker-machine rm default
--->docker-machine create -d virtualbox --virtualbox-cpu-count=2 --virtualbox-memory=4096 --virtualbox-disk-size=50000 default
--->docker-machine stop
--->exit
+-->docker-machine rm default     
+-->docker-machine create -d virtualbox --virtualbox-cpu-count=2 --virtualbox-memory=4096 --virtualbox-disk-size=50000 default    
+-->docker-machine stop    
+-->exit     
 
 
 
