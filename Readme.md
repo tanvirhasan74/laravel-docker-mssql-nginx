@@ -29,12 +29,12 @@ For nginx we will use tthe official nginx:alphine image.
 create a laravel project in the root project directory.
 Change the .env folder in your laravel project folder and put the credential for sqlsrv.
 
-For mssql we will use the microsoft official sqlserver 2017 image.
+For mssql we will use the microsoft official sqlserver 2017 image.                    
 
 
 
 
-If you are pulling from github you can start from here==>
+If you are pulling from github you can start from here==>     
 
 give your pc's user name in docker-copose file's app section
 
