@@ -32,11 +32,27 @@ Change the .env folder in your laravel project folder and put the credential for
 For mssql we will use the microsoft official sqlserver 2017 image.
 
 
+
+
+If you are pulling from github you can start from here==>
+
+give your pc's user name in docker-copose file's app section
+
+
 if everything is complete you can run " docker-compose up -d " and it will serve the laravel app in 8000 port.
 
+then find the ip where your wsl docker is hosting. To find the ip run "docker-machine env". then run that_ip:8000( For example 192.168.99.100:8000) in your browser
+ 
 if you see that sql server image can't run in your docker machine then you need to increase your docker memory. Initially it is set to 2GB so you need to increase it to 4GB.
+***for increasing docker memory run the following command in docker quickstart terminal
+docker-machine rm default
+docker-machine create -d virtualbox --virtualbox-cpu-count=2 --virtualbox-memory=4096 --virtualbox-disk-size=50000 default
+docker-machine stop
+exit
 
-open sql server management studio and connect to the container where sql server is installed using the server address and the port number. The default user is ==> sa and the password will be set by you.
+
+
+open sql server management studio and connect to the container where sql server is installed using the server address(the ip where your wsl docker is hosting) for the server address you can run run "docker-machine env" in docker quickstart terminal. The default user is ==> sa and the password will be set by you.
 Using sql server management studio create a database named testdb.
 
 you can also use artisan command in docker-compose(For example: docker-compose exec app php artisan serve)
